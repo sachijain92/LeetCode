@@ -8,26 +8,30 @@ public class Solution
 {
     public void moveZeroes(int[] nums)
     {
-        if(nums.length==0)
+        if(nums.length==0)		//if length of array is 0 return
             return;
-   
-        for(int i=0;i<nums.length;i++)
-            {
+        int i=0,j=1;
+        while(j<nums.length)
+         {
+         	if(nums[i]==0)	//when we find 0 at a particular index search for an index with non-zero element 
+                 {
+                 	if(nums[j]!=0)
+                        {
+                         	nums[i]=nums[j];	//swap them and increase the pointers
+                         	nums[j]=0;
+                         	i++;
+                         	j++;
+                         }
+                            
+                         else 	
+                         	j++;
+                 }
+                else	
+                 {
+                  	i++;
+                    j++;
+                 }
                 
-             for(int j=i+1;j<nums.length;j++)   
-                {
-                    if(nums[i]==0)
-                    {
-                        if(nums[j]!=0)
-                            {
-                                nums[i]=nums[j];
-                                nums[j]=0;
-                                break;
-                            }
-                    }
-                    else
-                       break;
-                }
-            }
+          }
     }
 }
